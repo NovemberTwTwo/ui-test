@@ -1,0 +1,92 @@
+#root {
+  width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.test-container {
+  width: 100%;
+}
+
+table {
+  max-width: 780px;
+  width: 100%;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: none;
+}
+
+thead {
+  display: contents;
+}
+
+tbody {
+  display: contents;
+}
+
+tr {
+  display: contents;
+}
+
+.resizing-head + th {
+  width: auto;
+}
+
+.col-head {
+  user-select: none;
+  position: relative;
+  display: flex;
+  padding-left: 8px;
+  border: 1px solid black;
+}
+
+.handle {
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0px;
+  width: 3px;
+  right: -2px;
+  z-index: 99;
+}
+
+.handle::after {
+  display: block;
+  content: "";
+  height: 100%;
+}
+
+.handle:hover {
+  background-color: red;
+}
+
+.handleLine {
+  position: absolute;
+  height: 100%;
+  top: 0px;
+  width: 1px;
+  right: -1px;
+  z-index: 98;
+}
+
+.handleActive {
+  background-color: red;
+}
+
+td {
+  padding-left: 10px;
+  display: flex;
+  width: 100%;
+}
+
+.tbody-container {
+  display: block;
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.tbody-container > tbody {
+  display: grid;
+  grid-template-columns: none;
+}
