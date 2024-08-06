@@ -14,12 +14,17 @@ const CTableHeader = ({ children, resizeWidth, lastIndex }: ICTableHeader) => {
   useEffect(() => {
     if (
       headerRef.current?.parentElement?.parentElement?.parentElement
-        ?.offsetHeight
-    )
+        ?.parentElement?.offsetHeight
+    ) {
+      console.log(
+        headerRef.current?.parentElement?.parentElement?.parentElement
+          ?.parentElement?.offsetHeight
+      );
       setHandlerHeight(
         headerRef.current?.parentElement?.parentElement?.parentElement
-          .offsetHeight
+          ?.parentElement?.offsetHeight
       );
+    }
   }, []);
 
   useEffect(() => {

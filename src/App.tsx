@@ -5,7 +5,7 @@ import useResizeTable from "./hooks/useResizeTable";
 function App() {
   const { isLoading, table, tbody, setColSize } = useResizeTable([
     { ratio: 1 },
-    { ratio: 3, isFixed: true },
+    { ratio: 2, isFixed: true },
     { ratio: 1 },
     { ratio: 1 },
     { ratio: 1 },
