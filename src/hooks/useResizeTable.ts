@@ -64,6 +64,7 @@ const useResizeTable = (columnOptions: IColumnOption[]) => {
           }
         });
         if (prev != -1 && next != -1) {
+          columns.current[next] -= delta;
           columns.current[prev] += delta;
           if (columns.current[prev] < 50) {
             const gap = 50 - columns.current[prev];
@@ -73,8 +74,15 @@ const useResizeTable = (columnOptions: IColumnOption[]) => {
             const gap = 2000 - columns.current[prev];
             columns.current[prev] = 2000;
             columns.current[next] += gap;
+          } else if (columns.current[next] < 50) {
+            const gap = 50 - columns.current[next];
+            columns.current[next] = 50;
+            columns.current[prev] -= gap;
+          } else if (columns.current[next] > 2000) {
+            const gap = 2000 - columns.current[next];
+            columns.current[next] = 2000;
+            columns.current[prev] += gap;
           }
-          columns.current[next] -= delta;
         }
       } else {
         let next = -1;
@@ -87,6 +95,23 @@ const useResizeTable = (columnOptions: IColumnOption[]) => {
         if (next != -1) {
           columns.current[index] += delta;
           columns.current[next] -= delta;
+          if (columns.current[index] < 50) {
+            const gap = 50 - columns.current[index];
+            columns.current[index] = 50;
+            columns.current[next] -= gap;
+          } else if (columns.current[index] > 2000) {
+            const gap = 2000 - columns.current[index];
+            columns.current[index] = 2000;
+            columns.current[next] += gap;
+          } else if (columns.current[next] < 50) {
+            const gap = 50 - columns.current[next];
+            columns.current[next] = 50;
+            columns.current[index] -= gap;
+          } else if (columns.current[next] > 2000) {
+            const gap = 2000 - columns.current[next];
+            columns.current[next] = 2000;
+            columns.current[index] += gap;
+          }
         }
       }
 
